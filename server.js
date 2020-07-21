@@ -33,7 +33,7 @@ app.post('/', (req, res) => {
       if (data) {
         let token = jwt.sign(data._id.toJSON(), 'secret');
         res.cookie('token', token, { maxAge: 30000 });
-        res.redirect('/private')
+        return res.redirect('/private')
       } else {
         return res.json('Failure');
       }
